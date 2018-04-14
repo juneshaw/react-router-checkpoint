@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link, Route } from 'react-router-dom'
+import Login from './Login'
+import Signup from './Signup'
 
 import {
   Collapse,
@@ -27,14 +30,16 @@ export default class Example extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <a href="#" className="nav-link">Login</a>
+                <Link className="nav-link" to="/login">Login</Link>
               </NavItem>
               <NavItem>
-                <a href="#" className="nav-link">Signup</a>
+                <Link className="nav-link" to="/signup">Signup</Link>
               </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
+        <Route exact path="/login" component={Login}/>
+        <Route path="/signup" component={Signup}/>
       </div>
     );
   }
