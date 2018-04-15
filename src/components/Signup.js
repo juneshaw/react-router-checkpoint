@@ -37,6 +37,7 @@ export class Signup extends Component {
     } else {
       let newUser = {name, email, company, phone, password, address}
       console.log('newUser', newUser)
+      console.log('props:', this.props)
       this.props.userSignup(newUser)
     }
   }
@@ -159,10 +160,9 @@ export class Signup extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    userSignup: bindActionCreators(userSignup, dispatch)
-  }
-}
+const mapDispatchToProps = dispatch =>
+bindActionCreators({
+  userSignup
+}, dispatch)
 
 export default connect(null, mapDispatchToProps)(Signup)

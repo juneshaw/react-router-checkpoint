@@ -7,8 +7,10 @@ import 'bootswatch/dist/materia/bootstrap.min.css'
 import './index.css';
 import App from './App'
 
+const storeInstance = store();
+
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={storeInstance}>
     <Router>
       <App />
     </Router>
