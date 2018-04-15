@@ -14,10 +14,16 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { userLogin } from '../actions/auth.actions'
 
+
+
 class Login extends Component {
   state = {
     email: '',
     password: ''
+  }
+
+  authorizeUser = (e) => {
+    alert('made it to auth')
   }
 
   render() {
@@ -32,7 +38,7 @@ class Login extends Component {
               boxShadow: '3px 3px 47px 0px rgba(0,0,0,0.5)'
             }}
           >
-            <Form>
+            <Form onSubmit={this.authorizeUser}>
               <FormGroup>
                 <Label for="email-field">Email</Label>
                 <Input

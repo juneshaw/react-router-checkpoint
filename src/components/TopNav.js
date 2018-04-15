@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -27,10 +27,10 @@ export default class Example extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink className="nav-link" to="/login">Login</NavLink>
+                <NavLink tag={Link} to="/login">Login</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/signup">Signup</NavLink>
+                <NavLink tag={Link} to="/signup">Signup</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
