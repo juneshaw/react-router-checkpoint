@@ -14,8 +14,6 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { userLogin } from '../actions/auth.actions'
 
-
-
 class Login extends Component {
   state = {
     email: '',
