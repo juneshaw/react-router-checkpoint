@@ -21,7 +21,11 @@ class Login extends Component {
   }
 
   authorizeUser = (e) => {
-    alert('made it to auth')
+    let currentUser = {
+      email: e.target.email.value,
+      password: e.target.password.value
+    }
+    this.props.userLogin(currentUser)
   }
 
   render() {
@@ -76,16 +80,14 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    showLoginError: state.auth.showLoginError
-  }
-}
+const mapStateToProps = state => ({
+  showLoginError: state.auth.showLoginError,
+  user: state.auth.user
+})
 
-function mapDispatchToProps(dispatch) {
-  return {
-    userLogin: bindActionCreators(userLogin, dispatch)
-  }
-}
+const mapDispatchToProps = dispatch =>
+bindActionCreators({
+  userLogin
+}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

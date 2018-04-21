@@ -38,8 +38,7 @@ const mapStateToProps = state => ({
 })
 
 connect(
-  mapStateToProps,
-  null
+  mapStateToProps, null
 )(App)
 
 export default App

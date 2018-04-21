@@ -14,6 +14,7 @@ export const userLogin = ({email, password}) => {
   return async (dispatch) => {
     try {
       dispatch({type: USER_LOGIN_PENDING})
+      console.log('user: ', JSON.stringify({email, password}))
       let response = await fetch(`${BASE_URL}/api/login`, {
         method: "POST",
         headers: {'Content-Type':'application/json'},
@@ -25,6 +26,7 @@ export const userLogin = ({email, password}) => {
         payload: userObject
       })
     } catch(err) {
+      console.log('ERROR!!!')
       dispatch({
         type: USER_LOGIN_FAILED,
         payload: err
