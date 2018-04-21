@@ -9,13 +9,14 @@ import {
   NavItem,
   NavLink } from 'reactstrap';
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { userLogout } from '../actions/auth.actions'
 
 class TopNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
-      isLoggedIn: false
     }
   }
   //
@@ -27,6 +28,7 @@ class TopNav extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
     return (
       <div>
@@ -43,7 +45,13 @@ class TopNav extends React.Component {
                   <NavLink tag={Link} to="/signup">Signup</NavLink>
                 </NavItem>
               </Nav>
-              ) : null
+              ) :
+              (<Nav className="ml-auto" navbar>
+                <NavItem >
+                  <a href="/" onClick={this.props.userLogout} className = "nav-link">Logout</a>
+                </NavItem>
+              </Nav>
+              )
             }
           </Collapse>
         </Navbar>
@@ -56,4 +64,10 @@ const mapStateToProps = state => ({
   isLoggedIn: state.auth.isLoggedIn
 })
 
-export default connect(mapStateToProps, null)(TopNav)
+
+const mapDispatchToProps = dispatch =>
+bindActionCreators({
+  userLogout
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopNav)

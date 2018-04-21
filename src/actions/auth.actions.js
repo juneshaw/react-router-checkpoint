@@ -65,7 +65,7 @@ export const userSignup = (newUser, history) => {
   }
 };
 
-export const userLogout = () => {
+export const userLogout = (history) => {
   return async (dispatch) => {
     dispatch({type: USER_LOGOUT})
   }
