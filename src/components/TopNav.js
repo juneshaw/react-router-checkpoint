@@ -19,10 +19,7 @@ class TopNav extends React.Component {
       isOpen: false,
     }
   }
-  //
-  // state = {
-  //   isOpen: false
-  // }
+
   toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
