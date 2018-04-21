@@ -21,11 +21,12 @@ class Login extends Component {
   }
 
   authorizeUser = (e) => {
+    e.preventDefault()
     let currentUser = {
       email: e.target.email.value,
       password: e.target.password.value
     }
-    this.props.userLogin(currentUser)
+    this.props.userLogin(currentUser, this.props.history)
   }
 
   render() {
